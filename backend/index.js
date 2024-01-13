@@ -1,12 +1,13 @@
 import dotenv from "dotenv";
-dotenv.config();
 import eventl from "events"
 eventl.EventEmitter.defaultMaxListeners = 20;
 import express from "express";
 import cors from "cors";
-import  "./config/db.js";
+import connectToMongo from "./config/db.js";
 import userRoutes from "./routes/user.js";
- 
+
+dotenv.config();
+connectToMongo();
 const app = express();
 const PORT = process.env.PORT || 9000;
 
